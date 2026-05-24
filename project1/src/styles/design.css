@@ -1,0 +1,119 @@
+.bottom-btn {
+  background-color: #495057;
+  color: lavender;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bottom-btn:hover {
+  background-color: #6EA1CC;
+  color: white;
+}
+
+/* 07_Admin.jsx 관련 파일 */
+.admin-page {
+  background: #f8f7f2;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h2 {
+  color: #2f4f4f;
+}
+
+.setting-btn {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.dashboard-section {
+  background: #f3f1ea;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.section-desc {
+  color: #7a8a8a;
+  font-size: 14px;
+}
+
+.warning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /*grid-template-columns: repeat(3, 1fr);*/
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.warning-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.danger-tag {
+  display: inline-block;
+  background: #ffe4e4;
+  color: red;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.count-box {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.count-box span {
+  background: #eef4fa;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.relocation-row {
+  background: white;
+  padding: 18px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.relocation-row span {
+  color: #4b8bff;
+  margin-left: 10px;
+}
+
+.location-row {
+  background: white;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  color: #ff5252;
+  font-size: 24px;
+  font-weight: bold;
+}
