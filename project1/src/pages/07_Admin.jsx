@@ -9,50 +9,24 @@ import {
   kioskRecommend,
 } from "../data/adminData";
 
-
-import { analyzeStockAI } from "../data/test1";
-import { analyzeMoveAI } from "../data/test1";
-
-import { useEffect } from "react";
+import { analyzeAI } from "../data/socket";
 
 import re50Logo from "../assets/Re50_image.svg";
 
 function Admin() {
   const navigate = useNavigate();
-   useEffect(() => {
+  const handleAnalyze = async () => {
+  try {
+    const result = await analyzeAI();
 
-  const runAI = async () => {
-    try {
+    console.log(result);
 
-      const [stoveResult, moveResult] =
-        await Promise.all([
-          analyzeStockAI(),
-          analyzeMoveAI(),
-        ]);
-
-      console.log(
-        "analyzeStockAI 결과:",
-        stoveResult
-      );
-
-      console.log(
-        "analyzeMoveAI 결과:",
-        moveResult
-      );
-
-    } catch (error) {
-
-      console.error(
-        "AI 실행 실패:",
-        error
-      );
-
-    }
-  };
-
-  runAI();
-
-}, []);
+    alert(result);
+  } catch (error) {
+    console.error("AI 분석 실패:", error);
+    alert("AI 분석에 실패했습니다.");
+  }
+};
   //const handleAnalyze = () => {
     //alert("AI 분석을 시작합니다.");
   //};
@@ -94,7 +68,26 @@ function Admin() {
         
 
       </div>
-      
+      <button
+          //AI 분석 버튼
+            onClick={handleAnalyze}
+            style={{
+              color: "white",
+              backgroundColor: "#6EA1CC",
+              padding: "20px 30px",
+              marginLeft: "20px",
+              fontSize: "20px",
+              cursor: "pointer",
+
+              borderRadius: "50px",
+              border: "2px #BFDDF5 solid",
+              textAlign: "center",
+              marginBottom:"20px"
+            }}
+          >
+            AI 분석
+          </button>
+
       {/* 재고 부족 사전 경고 */}
       <section style={{ width: "80%", maxWidth: "800px", maxWidth: "800px", margin: "0 auto", marginBottom: "20px",
        }} className="dashboard-section">
@@ -228,7 +221,7 @@ function Admin() {
 
         <div className="section-title">
           <h3 style= {{color:"black"}}>신규 키오스크 위치 추천
-            
+            (이건 점수로 구현하기 어렵지 않을까 싶어요.)
           </h3>
           <span>전체보기</span>
         </div>
@@ -256,11 +249,11 @@ function Admin() {
 
             </div>
 
-            <div style={{fontSize: "3px", color:"black", fontFamily:"Regular"}} className="score">
-              시뮬레이션 보기
+            <div className="score">
+              {item.score}점
             </div>
 
-          </div>// item.score점
+          </div>
         ))}
 
       </section>

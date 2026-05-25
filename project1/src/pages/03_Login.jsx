@@ -1,6 +1,4 @@
-//04_Login.jsx
-//로그인 페이지
-//
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,7 +6,7 @@ import axios from "axios";
 function Login() {
   const navigate = useNavigate();
 
-  const [id, setId] = useState("");
+  const [email, setId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -16,17 +14,19 @@ function Login() {
   // ✅ 로그인 처리 함수
   const handleLogin = async () => {
     // 빈 값 체크
-    if (!id || !password) {
+    if (!email || !password) {
       setError("아이디와 비밀번호를 입력해주세요.");
       return;
     }
 
     setIsLoading(true);
     setError("");
+  {
+    const apiUrl = import.meta.env.VITE_API_URL || "https://duyuthon7.onrender.com";
 
     try {
       // 🚀 백엔드 로그인 API 호출
-      const response = await axios.post("https://duyuthon7.onrender.com/api/auth/login", {
+      const response = await axios.post("${apiUrl}/api/auth/login", {
         email: id,
         password: password
       });
@@ -55,7 +55,7 @@ function Login() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }};
 
   return (
     <div

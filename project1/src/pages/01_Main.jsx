@@ -3,8 +3,7 @@
 import { useNavigate } from "react-router-dom";
 
 // 임시
-import { analyzeMoveAI } from "../data/test1";
-import { analyzeStockAI } from "../data/test1";
+import { analyzeAI } from "../data/test1";
 
 function Main() {
     const navigate = useNavigate();
