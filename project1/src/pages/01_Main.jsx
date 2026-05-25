@@ -1,6 +1,5 @@
 // 01_Main.jsx
 // 1. 텀블러 대여 시스템 메인 홈페이지
-//
 import { useNavigate } from "react-router-dom";
 
 // 임시
