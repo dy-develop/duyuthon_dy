@@ -1,6 +1,4 @@
-// 5. 현재 사용중인 화면
-// 05_Rental.jsx
-// 현재 사용중 화면
+
 
 import { useNavigate } from "react-router-dom";
 
