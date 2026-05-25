@@ -9,6 +9,7 @@ import homeIconcolor from "../assets/symbol_home_color.svg";
 import mapIcon from "../assets/symbol_map.svg";
 import settingIcon from "../assets/symbol_setting.svg";
 import re50Logo from "../assets/Re50_image.svg";
+import borrowIcon from "../assets/symbol_borrow.svg";
 
 /*
 <button
@@ -274,7 +275,7 @@ function Home() {
 
   {/* 사용중 rent 대여 */}
   <button
-    onClick={() => navigate("/rental")}
+    onClick={() => navigate("/map")}
     style={{
       flex: 1,
       backgroundColor: "transparent",
@@ -305,7 +306,7 @@ function Home() {
         fontWeight: "600",
       }}
     >
-      대여
+     MAP
     </div>
   </button>
 
@@ -342,9 +343,38 @@ function Home() {
         fontWeight: "600",
       }}
     >
-      설정
+      MY
     </div>
   </button>
+
+  <button
+  onClick={() => navigate("/rental")}
+  style={{
+    width: "55px",
+    height: "55px",
+
+    borderRadius: "50%",
+    border: "none",
+
+    backgroundColor: "#6FA8DC",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    cursor: "pointer",
+  }}
+>
+  <img
+    src={borrowIcon}
+    alt="대여"
+    style={{
+      width: "26px",
+      height: "26px",
+      objectFit: "contain",
+    }}
+  />
+</button>
 </div>
       </div>
   );

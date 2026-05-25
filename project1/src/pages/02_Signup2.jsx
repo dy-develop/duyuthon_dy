@@ -38,7 +38,7 @@ function Signup2() {
 
     try {
       // 🚀 백엔드 회원가입 API 호출
-      const response = await axios.post("http://localhost:3000/api/auth/signup", {
+      const response = await axios.post("https://duyuthon7.onrender.com/api/auth/signup", {
         email: signupData.email,
         password: signupData.password,
         name: name

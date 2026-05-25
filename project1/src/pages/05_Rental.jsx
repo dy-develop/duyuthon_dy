@@ -4,9 +4,11 @@
 import { useNavigate } from "react-router-dom";
 
 import homeIcon from "../assets/symbol_home.svg";
-import mapIconcolor from "../assets/symbol_map_color.svg";
+import mapIcon from "../assets/symbol_map.svg";
 import settingIcon from "../assets/symbol_setting.svg";
 import re50Logo from "../assets/Re50_image.svg";
+import borrowIcon from "../assets/symbol_borrow.svg";
+
 
 function Rental() {
   const navigate = useNavigate();
@@ -262,26 +264,31 @@ function Rental() {
         height: "30px",
         objectFit: "contain",
       }} />
-          <div>HOME</div>
+          <div style={{
+        marginTop: "2px",
+        fontSize: "15px",
+        color: "#6C6E7E",
+        fontWeight: "600",
+      }}>HOME</div>
         </button>
 
-        {/* 대여 활성 */}
+        {/* MAP */}
         <button
-          onClick={() => navigate("/rental")}
+          onClick={() => navigate("/map")}
           style={{
-            flex: 1.3,
-            backgroundColor: "#D8E4EF",
-            border: "none",
-            borderRadius: "50px",
-            padding: "8px 12px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
+            flex: 1,
+      backgroundColor: "transparent",
+      border: "none",
+      padding: "8px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      cursor: "pointer",
+          
           }}
         >
-          <img src={mapIconcolor} alt="" style={{
+          <img src={mapIcon} alt="" style={{
         width: "30px",
         height: "30px",
         objectFit: "contain",
@@ -289,9 +296,9 @@ function Rental() {
           <div style={{
         marginTop: "2px",
         fontSize: "15px",
-        fontWeight: "700",
-        color: "#679DC5",
-      }}>대여</div>
+        color: "#6C6E7E",
+        fontWeight: "600",
+      }}>MAP</div>
         </button>
 
         {/* 설정 */}
@@ -299,13 +306,60 @@ function Rental() {
           onClick={() => navigate("/setting")}
           style={{
             flex: 1,
+            backgroundColor: "transparent",
             border: "none",
-            background: "transparent",
+            padding: "8px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
           }}
         >
-          <img src={settingIcon} alt="" />
-          <div>설정</div>
+          <img src={settingIcon} alt="" style={{
+        width: "30px",
+        height: "30px",
+        objectFit: "contain",
+      }} />
+          <div style={{
+        marginTop: "2px",
+        fontSize: "15px",
+        color: "#6C6E7E",
+        fontWeight: "600",
+      }}>MY</div>
         </button>
+
+        {/* 대여 버튼 */}
+ <button
+  onClick={() => navigate("/rental")}
+  style={{
+    width: "55px",
+    height: "55px",
+
+    borderRadius: "50%",
+    border: "none",
+
+    backgroundColor: "#6FA8DC",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    cursor: "pointer",
+  }}
+>
+  <img
+    src={borrowIcon}
+    alt="대여"
+    style={{
+      width: "26px",
+      height: "26px",
+      objectFit: "contain",
+    }}
+  />
+</button>
+
+
 
       </div>
     </div>

@@ -9,6 +9,7 @@ import homeIcon from "../assets/symbol_home.svg";
 import mapIconcolor from "../assets/symbol_map_color.svg";
 import settingIcon from "../assets/symbol_setting.svg";
 import re50Logo from "../assets/Re50_image.svg";
+import borrowIcon from "../assets/symbol_borrow.svg";
 
 function Rental() {
 
@@ -56,7 +57,7 @@ function Rental() {
                 />
 
       {/* 제목 */}
-      <h1 style={{ color: "black" }}>대여</h1>
+      <h1 style={{ color: "black" }}>Map</h1>
 
       {/* 텀블러 정보 */}
       
@@ -235,7 +236,7 @@ function Rental() {
         color: "#679DC5",
       }}
     >
-      대여
+      MAP
     </div>
   </button>
 
@@ -272,8 +273,37 @@ function Rental() {
         fontWeight: "600",
       }}
     >
-      설정
+      MY
     </div>
+  </button>
+
+  <button
+    onClick={() => navigate("/rental")}
+    style={{
+      width: "55px",
+      height: "55px",
+  
+      borderRadius: "50%",
+      border: "none",
+  
+      backgroundColor: "#6FA8DC",
+  
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+  
+      cursor: "pointer",
+    }}
+  >
+    <img
+      src={borrowIcon}
+      alt="대여"
+      style={{
+        width: "26px",
+        height: "26px",
+        objectFit: "contain",
+      }}
+    />
   </button>
 </div>
 </div>
