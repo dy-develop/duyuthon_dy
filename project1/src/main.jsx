@@ -1,5 +1,5 @@
 // pages에 동시에 적용되므로 styles-design.css을 적용시 사용
-//
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'

@@ -1,4 +1,3 @@
-//
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Main from "./pages/01_Main";
@@ -9,8 +8,6 @@ import Home from "./pages/04_Home";
 import Rental from "./pages/05_Rental";
 import Setting from "./pages/06_Setting";
 import Admin from "./pages/07_Admin";
-import MapPage from "./pages/08_Map";
-import Map from "./pages/08_Map";
 
 function App() {
   return (
@@ -34,7 +31,6 @@ function App() {
 
         <Route path="/admin" element={<Admin />} />
         
-        <Route path="/map" element={<Map />} />
 
       </Routes>
 

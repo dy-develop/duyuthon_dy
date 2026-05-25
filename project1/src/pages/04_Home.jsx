@@ -1,6 +1,5 @@
 //04_Home.jsx
 //4. 로그인 성공 후 홈 화면
-//
 import { useNavigate } from "react-router-dom";
 
 import { analyzeAI } from "../data/socket";
@@ -9,7 +8,6 @@ import homeIconcolor from "../assets/symbol_home_color.svg";
 import mapIcon from "../assets/symbol_map.svg";
 import settingIcon from "../assets/symbol_setting.svg";
 import re50Logo from "../assets/Re50_image.svg";
-import borrowIcon from "../assets/symbol_borrow.svg";
 
 /*
 <button
@@ -224,11 +222,11 @@ function Home() {
     bottom: "20px",
     left: "50%",
     transform: "translateX(-50%)",
-    width: "80%",
-    maxWidth: "400px",
+    width: "90%",
+    maxWidth: "700px",
     backgroundColor: "#FFFFFF",
     borderRadius: "60px",
-    padding: "4px",
+    padding: "12px",
     display: "flex",
     alignItems: "center",
     boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
@@ -243,7 +241,7 @@ function Home() {
       backgroundColor: "#D8E4EF",
       border: "none",
       borderRadius: "50px",
-      padding: "8px 12px",
+      padding: "18px 20px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -255,16 +253,16 @@ function Home() {
       src={homeIconcolor}
       alt="home"
       style={{
-        width: "30px",
-        height: "30px",
+        width: "52px",
+        height: "52px",
         objectFit: "contain",
       }}
     />
 
     <div
       style={{
-        marginTop: "2px",
-        fontSize: "15px",
+        marginTop: "8px",
+        fontSize: "22px",
         fontWeight: "700",
         color: "#679DC5",
       }}
@@ -275,12 +273,12 @@ function Home() {
 
   {/* 사용중 rent 대여 */}
   <button
-    onClick={() => navigate("/map")}
+    onClick={() => navigate("/rental")}
     style={{
       flex: 1,
       backgroundColor: "transparent",
       border: "none",
-      padding: "8px",
+      padding: "18px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -292,21 +290,21 @@ function Home() {
       src={mapIcon}
       alt="rental"
       style={{
-        width: "30px",
-        height: "30px",
+        width: "52px",
+        height: "52px",
         objectFit: "contain",
       }}
     />
 
     <div
       style={{
-        marginTop: "2px",
-        fontSize: "15px",
+        marginTop: "8px",
+        fontSize: "20px",
         color: "#6C6E7E",
         fontWeight: "600",
       }}
     >
-     MAP
+      대여
     </div>
   </button>
 
@@ -317,7 +315,7 @@ function Home() {
       flex: 1,
       backgroundColor: "transparent",
       border: "none",
-      padding: "8px",
+      padding: "18px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -329,52 +327,23 @@ function Home() {
       src={settingIcon}
       alt="setting"
       style={{
-        width: "30px",
-        height: "30px",
+        width: "52px",
+        height: "52px",
         objectFit: "contain",
       }}
     />
 
     <div
       style={{
-        marginTop: "2px",
-        fontSize: "15px",
+        marginTop: "8px",
+        fontSize: "20px",
         color: "#6C6E7E",
         fontWeight: "600",
       }}
     >
-      MY
+      설정
     </div>
   </button>
-
-  <button
-  onClick={() => navigate("/rental")}
-  style={{
-    width: "55px",
-    height: "55px",
-
-    borderRadius: "50%",
-    border: "none",
-
-    backgroundColor: "#6FA8DC",
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    cursor: "pointer",
-  }}
->
-  <img
-    src={borrowIcon}
-    alt="대여"
-    style={{
-      width: "26px",
-      height: "26px",
-      objectFit: "contain",
-    }}
-  />
-</button>
 </div>
       </div>
   );
