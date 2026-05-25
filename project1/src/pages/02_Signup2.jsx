@@ -1,213 +1,141 @@
-// 02_Signup2.jsx
-// 회원가입 - 환경 관심사 입력
-
+//03_Signup2.jsx
+//2. 회원가입 페이지 (2/2) - 이름 입력 + 백엔드 회원가입 처리
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup2() {
-
-  // 페이지 이동용
   const navigate = useNavigate();
 
-  // 환경 관심사 저장
-  const [interest, setInterest] = useState("");
-
-  // 오류 메시지 저장
+  // 이름 저장
+  const [name, setName] = useState("");
+  
+  // 오류 메시지
   const [error, setError] = useState("");
+  
+  // 로딩 상태 (중복 클릭 방지)
+  const [isLoading, setIsLoading] = useState(false);
 
-  // 시작하기 버튼 클릭
-  const handleStart = () => {
-
-    // 글자 수 검사
-    if (
-      interest.length < 2 ||
-      interest.length > 7
-    ) {
-      setError("2~7자로 입력해주세요.");
+  // ✅ 회원가입 처리 함수 (백엔드 호출!)
+  const handleSignup = async () => {
+    // 빈 값 체크
+    if (!name.trim()) {
+      setError("이름을 입력해주세요.");
       return;
     }
 
-    // 오류 메시지 제거
+    // 이전 페이지에서 저장한 정보 불러오기
+    const signupData = JSON.parse(localStorage.getItem("signupData"));
+    if (!signupData) {
+      setError("회원가입 정보가 없습니다. 처음부터 다시 진행해주세요.");
+      navigate("/signup");
+      return;
+    }
+
+    setIsLoading(true);
     setError("");
 
-    // 이전 회원가입 정보 가져오기
-    const signupData =
-      JSON.parse(
-        localStorage.getItem("signupData")
-      ) || {};
+    try {
+      // 🚀 백엔드 회원가입 API 호출
+      const response = await axios.post("http://localhost:3000/api/auth/signup", {
+        email: signupData.email,
+        password: signupData.password,
+        name: name
+      });
 
-    // 최종 회원 정보
-    const userData = {
-      ...signupData,
-      interest
-    };
+      console.log("회원가입 성공:", response.data);
 
-    console.log("회원가입 정보");
-    console.log(userData);
+      // 회원가입 임시 데이터 삭제
+      localStorage.removeItem("signupData");
 
-    /*
-      추후 Node.js 서버 연동
+      // 회원가입 성공 알림
+      alert("회원가입이 완료되었습니다! 로그인 페이지로 이동합니다.");
 
-      axios.post(
-        "http://localhost:5000/signup",
-        userData
-      )
-    */
+      // 로그인 페이지로 이동
+      navigate("/login");
 
-    // 홈 화면 이동
-    navigate("/");
+    } catch (err) {
+      // ❌ 에러 처리
+      console.error("회원가입 실패:", err);
+      
+      if (err.response) {
+        // 백엔드에서 보낸 에러 메시지
+        setError(err.response.data.message || "회원가입에 실패했습니다.");
+      } else if (err.request) {
+        // 서버 응답이 없는 경우
+        setError("서버에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.");
+      } else {
+        setError("회원가입 중 오류가 발생했습니다.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-
-    // 전체 화면
     <div
       style={{
         backgroundColor: "#F9F7ED",
+        color: "black",
         minHeight: "100vh",
-        position: "relative",
-        padding: "20px",
+        paddingTop: "70px"
       }}
     >
+      <h1 style={{ color: "black" }}>회원가입</h1>
+      <p style={{ color: "#666" }}>마지막 단계입니다!</p>
 
-      {/* 상단 제목 */}
       <div
         style={{
-          textAlign: "center",
-          fontSize: "20px",
-          fontWeight: "bold",
-          marginTop: "10px"
+          width: "100%",
+          maxWidth: "500px",
+          margin: "0 auto",
+          marginTop: "50px"
         }}
       >
-        회원가입
-      </div>
-
-      {/* 환경 관심사 영역 */}
-      <div
-        style={{
-          marginTop: "40px",
-
-          //입력창 수정
-          display: "flex",
-          flexDirection: "column",
-          alignItems : "center"
-        }}
-      >
-
-        {/* 페이지 제목 */}
-        <h1
-          style={{
-            color: "black",
-            marginBottom: "100px"
-          }}
-        >
-          환경 관심사
-        </h1>
-
-        {/* 환경 관심사 입력 */}
-        <div
-          style={{
-            textAlign: "left",
-            marginBottom: "30px",
-
-            //width:"300px",
-            //maxWidth:"100%",
-            margin:"0 auto",
-            
-          }}
-        >
-
-          <label style={{ display: "block", marginBottom: "10px" }}>
-            관심사를 작성해주세요.
-          </label>
-
+        {/* 이름 입력 */}
+        <div style={{ textAlign: "left", marginBottom: "30px" }}>
+          <label>이름</label>
           <input
             type="text"
-            placeholder="예) 텀블러"
-
-            value={interest}
-            onChange={(e) =>
-              setInterest(e.target.value)
-            }
-
+            placeholder="이름을 입력하세요"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             style={{
-              width:"100%",
-              maxWidth: "400px",
-            
-
-              padding: "10px",
-              marginTop: "5px",
               backgroundColor: "white",
               color: "black",
-              border: "none",
-              borderBottom: "1px solid #999"
+              width: "90%",
+              padding: "10px",
+              marginTop: "5px",
+              border: "2px solid black"
             }}
           />
-
-          {/* 입력 조건 안내 */}
-          <p
-            style={{
-              color: "#777",
-              marginTop: "5px",
-              fontSize: "14px"
-            }}
-          >
-            * 2~7자로 입력해주세요.
-          </p>
-
         </div>
 
         {/* 오류 메시지 */}
         {error && (
-          <p
-            style={{
-              color: "red"
-            }}
-          >
+          <p style={{ color: "red", marginBottom: "15px" }}>
             {error}
           </p>
         )}
 
-      </div>
-
-      {/* 시작하기 버튼 영역 */}
-      <div
-        style={{
-          position: "absolute",
-          marginTop: "100px",
-          // bottom: "200px",
-          left: 0,
-          width: "100%",
-          textAlign: "center",
-          
-        }}
-      >
-
-        {/* 시작하기 버튼 */}
+        {/* 가입 완료 버튼 */}
         <button
-          onClick={handleStart}
+          onClick={handleSignup}
+          disabled={isLoading}
           style={{
+            backgroundColor: isLoading ? "#aaa" : "#6EA1CC",
             width: "80%",
-            maxWidth: "400px",
-            backgroundColor: "#6EA1CC",
-            color: "white",
-            border: "none",
             padding: "15px",
             fontSize: "20px",
-            // 둥글게 곡선모양 버튼 처리
+            cursor: isLoading ? "not-allowed" : "pointer",
             borderRadius: "50px",
-            cursor: "pointer",
-
-            
+            border: "none"
           }}
         >
-          시작하기
+          {isLoading ? "처리 중..." : "가입 완료"}
         </button>
-
       </div>
-
     </div>
-
   );
 }
 
