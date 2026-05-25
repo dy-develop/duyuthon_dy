@@ -1,6 +1,6 @@
 // 06_Setting.jsx
 // 개인 설정 화면
-
+//
 import { useNavigate } from "react-router-dom";
 
 import homeIcon from "../assets/symbol_home.svg";

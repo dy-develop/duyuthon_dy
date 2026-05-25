@@ -1,5 +1,6 @@
 //04_Home.jsx
 //4. 로그인 성공 후 홈 화면
+//
 import { useNavigate } from "react-router-dom";
 
 import { analyzeAI } from "../data/socket";

@@ -1,5 +1,5 @@
 // src/data/test1.js
-
+//
 export async function analyzeMoveAI() {
   const response = await fetch("https://duyuthon7.onrender.com/ai/analyzeMove", {
     method: "POST",

@@ -1,5 +1,6 @@
 //03_Signup2.jsx
 //2. 회원가입 페이지 (2/2) - 이름 입력 + 백엔드 회원가입 처리
+//
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";

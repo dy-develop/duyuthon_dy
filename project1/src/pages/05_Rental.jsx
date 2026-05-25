@@ -1,6 +1,6 @@
 // 05_Rental.jsx
 // 현재 대여중 화면
-
+//
 import { useNavigate } from "react-router-dom";
 
 import homeIcon from "../assets/symbol_home.svg";
