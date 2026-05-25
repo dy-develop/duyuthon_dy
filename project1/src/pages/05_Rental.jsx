@@ -262,7 +262,12 @@ function Rental() {
         height: "30px",
         objectFit: "contain",
       }} />
-          <div>HOME</div>
+          <div style={{
+        marginTop: "2px",
+        fontSize: "15px",
+        color: "#6C6E7E",
+        fontWeight: "600",
+      }}>HOME</div>
         </button>
 
         {/* 대여 활성 */}
@@ -299,12 +304,27 @@ function Rental() {
           onClick={() => navigate("/setting")}
           style={{
             flex: 1,
+            backgroundColor: "transparent",
             border: "none",
-            background: "transparent",
+            padding: "8px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
           }}
         >
-          <img src={settingIcon} alt="" />
-          <div>설정</div>
+          <img src={settingIcon} alt="" style={{
+        width: "30px",
+        height: "30px",
+        objectFit: "contain",
+      }} />
+          <div style={{
+        marginTop: "2px",
+        fontSize: "15px",
+        color: "#6C6E7E",
+        fontWeight: "600",
+      }}>설정</div>
         </button>
 
       </div>
