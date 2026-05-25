@@ -26,7 +26,7 @@ function Login() {
 
     try {
       // 🚀 백엔드 로그인 API 호출
-      const response = await axios.post("http://localhost:3000/api/auth/login", {
+      const response = await axios.post("https://duyuthon7.onrender.com/api/auth/login", {
         email: id,
         password: password
       });
