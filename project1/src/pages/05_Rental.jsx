@@ -151,11 +151,11 @@ function Rental() {
     bottom: "20px",
     left: "50%",
     transform: "translateX(-50%)",
-    width: "90%",
-    maxWidth: "700px",
+    width: "80%",
+    maxWidth: "400px",
     backgroundColor: "#FFFFFF",
     borderRadius: "60px",
-    padding: "12px",
+    padding: "4px",
     display: "flex",
     alignItems: "center",
     boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
@@ -169,7 +169,7 @@ function Rental() {
       flex: 1,
       backgroundColor: "transparent",
       border: "none",
-      padding: "18px",
+      padding: "8px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -181,16 +181,16 @@ function Rental() {
       src={homeIcon}
       alt="home"
       style={{
-        width: "52px",
-        height: "52px",
+        width: "30px",
+        height: "30px",
         objectFit: "contain",
       }}
     />
 
     <div
       style={{
-        marginTop: "8px",
-        fontSize: "20px",
+        marginTop: "2px",
+        fontSize: "15px",
         color: "#6C6E7E",
         fontWeight: "600",
       }}
@@ -208,7 +208,7 @@ function Rental() {
       backgroundColor: "#D8E4EF",
       border: "none",
       borderRadius: "50px",
-      padding: "18px 20px",
+      padding: "8px 12px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -220,16 +220,16 @@ function Rental() {
       src={mapIconcolor}
       alt="rental"
       style={{
-        width: "52px",
-        height: "52px",
+        width: "30px",
+        height: "30px",
         objectFit: "contain",
       }}
     />
 
     <div
       style={{
-         marginTop: "8px",
-        fontSize: "22px",
+         marginTop: "2px",
+        fontSize: "15px",
         fontWeight: "700",
         color: "#679DC5",
       }}
@@ -245,7 +245,7 @@ function Rental() {
       flex: 1,
       backgroundColor: "transparent",
       border: "none",
-      padding: "18px",
+      padding: "8px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -257,16 +257,16 @@ function Rental() {
       src={settingIcon}
       alt="setting"
       style={{
-        width: "52px",
-        height: "52px",
+        width: "30px",
+        height: "30px",
         objectFit: "contain",
       }}
     />
 
     <div
       style={{
-        marginTop: "8px",
-        fontSize: "20px",
+        marginTop: "2px",
+        fontSize: "15px",
         color: "#6C6E7E",
         fontWeight: "600",
       }}

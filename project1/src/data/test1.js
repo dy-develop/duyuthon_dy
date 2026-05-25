@@ -1,13 +1,32 @@
-// src/data/socket.js
+// src/data/test1.js
 
-export async function analyzeAI() {
-  const response = await fetch("https://duyuthon7.onrender.com/ai/analyze", {
+export async function analyzeMoveAI() {
+  const response = await fetch("https://duyuthon7.onrender.com/ai/analyzeMove", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      text: "텀블러 100회 사용!AND!대기오염",
+      
+    }),
+  });
+
+  const data = await response.json();
+
+  console.log(data.result);
+
+  return data.result;
+}
+// src/data/socket.js
+
+export async function analyzeStockAI() {
+  const response = await fetch("https://duyuthon7.onrender.com/ai/analyzeStock", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      
     }),
   });
 
